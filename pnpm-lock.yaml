@@ -203,9 +203,6 @@ importers:
       tsx:
         specifier: ^4.23.15
         version: 4.23.15
-      typecript:
-        specifier: 0.0.1-security
-        version: 0.0.1-security
       typescript:
         specifier: ^7.0.2
         version: 7.0.2
@@ -804,9 +801,6 @@ packages:
     resolution: {integrity: sha512-faYHw0anBbc/kWF3zFTEnxSFOAGUX9GFbOBthvDdLsIlEoWOFOtS0zgCiQYwIskL9iGXZL3kAXD8OoZ4GmMATA==}
     engines: {node: '>= 18'}
 
-  typecript@0.0.1-security:
-    resolution: {integrity: sha512-88WUWdO0zl/cC+X44m7TJkNssn0sTwZOSAyZu7ZmY6BfGJ4idVWJGjFmd6wEjS3yhWUYrAszzNMHZMIJ7h3ycg==}
-
   typescript@7.0.2:
     resolution: {integrity: sha512-8FYau96o3NKOhbjKi/qNvG/W5jhzxkbdm5sj9AbZ/5T5sWqn3hJgLfGx27sRKZWTvyzCP8dLRBTf5tBTSRVUNA==}
     engines: {node: '>=16.20.0'}
@@ -1357,8 +1351,6 @@ snapshots:
       content-type: 2.1.0
       media-typer: 1.1.1
       mime-types: 3.0.2
-
-  typecript@0.0.1-security: {}
 
   typescript@7.0.2:
     optionalDependencies:
