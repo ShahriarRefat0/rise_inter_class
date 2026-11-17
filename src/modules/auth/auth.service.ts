@@ -1,3 +1,4 @@
+import { ApiError } from "../../utils/ApiError.js";
 import { Ilogin } from "./auth.types.js";
 
 const login = (payload:Ilogin)=>{
@@ -10,9 +11,9 @@ const user = {
     password: "1234"
 }
 
-if ( user.email !== email) throw new Error ("User not found");
+if ( user.email !== email) throw new ApiError (404,"User not found");
 
-if(user.password !== password) throw new Error("Wrong Pass");
+if(user.password !== password) throw new ApiError(401,"Wrong Pass");
 
 return user;
 
