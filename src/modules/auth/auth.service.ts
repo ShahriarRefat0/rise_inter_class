@@ -1,6 +1,8 @@
+import bcrypt from "bcrypt";
+import { StatusCodes } from "http-status-codes";
+import { prisma } from "../../config/prisma.config.js";
 import { ApiError } from "../../utils/ApiError.js";
-import { Ilogin } from "./auth.types.js";
-
+import { Ilogin, RegisterUser } from "./auth.types.js";
 const login = (payload:Ilogin)=>{
     const {email, password} = payload;
     //logic
@@ -20,14 +22,37 @@ return user;
 }
 
 //regster 
+const registerUser = async (payload: RegisterUser) => {
 
-//otp
+  const isExistUser = await prisma.user.findUnique({
+    where: { email: payload.email },
+  });
 
-// pass reset
+  if (isExistUser) {
+    throw new ApiError(StatusCodes.CONFLICT, "User already exist");
+  }
+
+  const hashedPassword = await bcrypt.hash(payload.password, 10);
+
+
+  const newUser = await prisma.user.create({
+    data: {
+      name: payload.name,
+      email: payload.email,
+      password: hashedPassword,
+    },
+    omit: {
+      password: true,
+    },
+  });
+
+  return newUser;
+};
+
 
 export const authSevice = {
     login,
-    // register,
+    registerUser,
     // otp,
     // pass_reset
 }

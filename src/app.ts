@@ -23,7 +23,7 @@ app.use(express.json()); //re.body data = undefined
 app.use(cookieParser()); //cookieparser = undefined
 
 //urlecorded
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({extended: true}))   
 
 
 app.use('/api/v1', routes)
